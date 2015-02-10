@@ -19,7 +19,7 @@ of thing, so we had to go round-about, tunneling through an EC2 instance.
 <a name="security"/>
 ## Set up security
 
-# Set up the VPC
+### Set up the VPC
 
 First, we need to set up the framework to allow our EC2 instance and our RDS instance to communicate.  The AWS process for this
 is to put them on the same VPC.  
