@@ -10,15 +10,14 @@ to set up an ssh tunnel to the database instance.  Unfortunately, Amazon did not
 of thing, so we had to go round-about, tunneling through an EC2 instance.
 
 # Overview:
-1. [Set up security](#Set up security)
-2. [Set up your EC2 instance](#Set up your EC2 instance)
+1. [Set up security](#security)
+2. [Set up your EC2 instance](#ec2)
 3. [Set up your RDS instance](#rds)
 4. [SSH tunnel through EC2 to RDS](#ssh)
 5. [Log in to your database](#database)
 
-##Set up security
-
-
+<a name="security"/>
+## Set up security
 
 First, we need to set up the framework to allow our EC2 instance and our RDS instance to communicate.  The AWS process for this
 is to put them on the same VPC.  
@@ -47,8 +46,8 @@ We'll need this key file later, so let's call the path to it \[keyFilePath\]
 
 Now we have our security all set up.
 
-
-##Set up your EC2 instance
+<a name="ec2"/>
+## Set up your EC2 instance
 
 Go back to the EC2 panel, and create a new EC2 instance.  Put it in the SSH security group you created earlier, and also put it in your database
 access VPC.  Inspect your instance by clicking on it vigorously, and somewhere you should see a Public DNS entry.  This is how you will access
