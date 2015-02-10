@@ -19,6 +19,8 @@ of thing, so we had to go round-about, tunneling through an EC2 instance.
 <a name="security"/>
 ## Set up security
 
+# Set up the VPC
+
 First, we need to set up the framework to allow our EC2 instance and our RDS instance to communicate.  The AWS process for this
 is to put them on the same VPC.  
 
@@ -30,10 +32,23 @@ Now, we have a VPC that we can assign our EC2 instance to and our RDS instance t
 easy by creating a default security group for the VPC, which basically allows any communication between members of the VPC.  We'll see
 how this works soon...
 
+You'll now need to tell that VPC that it's going to be hosting databases, and set up permissions for that.  To do that, click on the
+Subnets link in the VPC panel, and create a couple of subnets within the CIDR range for the VPC.  These will be used for the database.
+
+As an example, I set up the VPC with the 10.0.0.0/24 CIDR, and two subnets in two different locations with the 10.0.0.0/28 and 10.0.0.16/28 
+CIDRs, respectively.
+
+Now, hop over to the RDC panel, and click the Subnet Groups link.  Create a new DB Subnet Group with those two subnets we just created.  Now
+our VPC can host RDC databases.
+
+#Set up the SSH group
+
 Second, however, we'll need one more security group.  Navigate now to the AWS EC2 panel, and click on the tab to edit your security groups.
 You should see one for the VPC you just created, and now we're going to create one more so that we can access our EC2 instance, that we'll be
 creating soon.  So... Create a new security group, assign it to your new VPC and give it access to SSH port 22.  You can assign a range of
 IP addresses that you'll be accessing it from, but I don't have a static IP, so I didn't do this.
+
+# Get your key
 
 Third, you'll need a ssl key to access your EC2 instance.  In the EC2 panel, find the section to create Key Pairs.  Create a new key pair,
 and save the pem file somewhere safe.  Now, to keep people who aren't you from reading your key file:
@@ -65,7 +80,8 @@ Now our EC2 instance is all set up.
 Go to the RDS panel, and create a new RDS instance.  Make a note of the database name (NOT the instance name) and the user 
 (hereafter \[dbName\],  \[dbUser\])
 
-Put it in the database access VPC.  Inspect the instance by clicking around, and find the database endpoint.  Note that this includes
+Put it in the database access VPC, in the subnet group that you set up.  Inspect the instance by clicking around, 
+and find the database endpoint.  Note that this includes
 a domain followed by a port.  Copy these down, separately.  (\[dbEndpoint\],  \[dbPort\])
 
 The port will depend on the type of database you set up.  I set mine up using postgres, but it really shouldn't matter.
