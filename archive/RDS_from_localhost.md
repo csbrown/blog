@@ -41,14 +41,14 @@ CIDRs, respectively.
 Now, hop over to the RDC panel, and click the Subnet Groups link.  Create a new DB Subnet Group with those two subnets we just created.  Now
 our VPC can host RDC databases.
 
-#Set up the SSH group
+### Set up the SSH group
 
 Second, however, we'll need one more security group.  Navigate now to the AWS EC2 panel, and click on the tab to edit your security groups.
 You should see one for the VPC you just created, and now we're going to create one more so that we can access our EC2 instance, that we'll be
 creating soon.  So... Create a new security group, assign it to your new VPC and give it access to SSH port 22.  You can assign a range of
 IP addresses that you'll be accessing it from, but I don't have a static IP, so I didn't do this.
 
-# Get your key
+### Get your key
 
 Third, you'll need a ssl key to access your EC2 instance.  In the EC2 panel, find the section to create Key Pairs.  Create a new key pair,
 and save the pem file somewhere safe.  Now, to keep people who aren't you from reading your key file:
