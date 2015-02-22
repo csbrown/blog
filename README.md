@@ -1,1 +1,1 @@
-archive/RDS_from_localhost.md
+archive/postgres_user_privileges.md
