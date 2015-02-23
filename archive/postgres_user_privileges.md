@@ -15,8 +15,8 @@ Step 1: Create your users:
 Log into your postgres database as admin, and:
 
 ```
-    [mydb]=> create user [readuser] with password "[read's password]"
-    [mydb]=> create user [readwriteuser] with password "[readwrite's password]"
+    [mydb]=> create user [readuser] with password '[read's password]';
+    [mydb]=> create user [readwriteuser] with password '[readwrite's password]';
 ```
 
 Step 2: Give your users approrpiate access to the current tables:
