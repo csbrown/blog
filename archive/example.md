@@ -175,6 +175,6 @@ Reference-style:
 
 <figure>
   <img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
-  <figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
+  <em>Fig1. - A view of the pulpit rock in Norway.</em>
 </figure>
 
