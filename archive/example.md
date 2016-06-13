@@ -157,3 +157,19 @@ I get 10 times more traffic from [Google] [1] than from
   [1]: http://google.com/        "Google"
   [2]: http://search.yahoo.com/  "Yahoo Search"
   [3]: http://search.msn.com/    "MSN Search"
+
+
+Images
+------
+
+Here's our logo (hover to see the title text):
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style: 
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+
